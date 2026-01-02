@@ -1,0 +1,16 @@
+Cheat Sheet:
+
+taints:
+kubectl taint nodes node01 spray=mortein:NoSchedule
+Run the command: kubectl taint nodes controlplane node-role.kubernetes.io/control-plane:NoSchedule- to untaint the node.
+
+Which node is the POD mosquito on now?
+Run the command kubectl get pods -o wide and look at the Node column.
+
+create yaml file:
+kubectl run simonpod --image=nginx --dry-run=client -o yaml > simonpod.yaml
+
+labels:
+kubectl label nodes <node name> labelkey=label vlaue
+
+Node Affinity:
