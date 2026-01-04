@@ -48,3 +48,12 @@ kubectl get daemonsets.apps --all-namespaces
 
 to see all deployments on all namespaces:
 kubectl get deployments --all-namespaces
+
+static Pods:
+What is the path of the directory holding the static pod definition files?
+Run the command ps -aux | grep kubelet and identify the config file - --config=/var/lib/kubelet/config.yaml. Then check in the config file for staticPodPath.
+
+Create a static pod named static-busybox that uses the busybox image , run in the default namespace and the command sleep 1000
+kubectl run --restart=Never --image=busybox static-busybox --dry-run=client -o yaml --command -- sleep 1000 > /etc/kubernetes/manifests/static-busybox.yaml
+
+
