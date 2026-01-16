@@ -56,4 +56,9 @@ Run the command ps -aux | grep kubelet and identify the config file - --config=/
 Create a static pod named static-busybox that uses the busybox image , run in the default namespace and the command sleep 1000
 kubectl run --restart=Never --image=busybox static-busybox --dry-run=client -o yaml --command -- sleep 1000 > /etc/kubernetes/manifests/static-busybox.yaml
 
+Check the Pod's schedulerName
+You can view the schedulerName field using the kubectl get pod command with a specific output format: 
+bash
+kubectl get pod <pod-name> -o jsonpath='{.spec.schedulerName}'
+
 
